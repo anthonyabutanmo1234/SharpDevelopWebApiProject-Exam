@@ -4,11 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
+
 namespace SharpDevelopWebApi.Models
 {
     public class SDWebApiDbContext : DbContext
     {
-        public SDWebApiDbContext() : base("DefaultConn") // name_of_dbconnection_string
+        public SDWebApiDbContext() : base("DefaultConn3") // name_of_dbconnection_string
         {
         }
 
@@ -19,8 +20,12 @@ namespace SharpDevelopWebApi.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Studyante> Studyantes { get; set; }
+        public DbSet<Faculty> Facultys { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        
     }
-
 
 }
 
