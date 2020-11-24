@@ -10,7 +10,7 @@ namespace SharpDevelopWebApi.Models{
     {
 		
 		public string SchoolLastAttended { get; set; }
-		public int CourseId { get; set; }
+		public string CourseId { get; set; }
 	
     }
 

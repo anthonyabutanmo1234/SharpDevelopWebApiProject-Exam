@@ -16,15 +16,15 @@ namespace SharpDevelopWebApi.Controllers
 	{
 		SDWebApiDbContext _db = new SDWebApiDbContext();
 		[HttpGet]
-		public IHttpActionResult Getall(string keyword="")
+		public IHttpActionResult Getall(string StudentID="")
 		{
-			keyword = keyword.Trim();
+			StudentID = StudentID.Trim();
 			var students = new List<Stud>();
 			
-			if(!string.IsNullOrEmpty(keyword))
+			if(!string.IsNullOrEmpty(StudentID))
 			{
 				students = _db.Student
-					.Where(x=> x.LastName.Contains(keyword) || x.Firstname.Contains(keyword))
+					.Where(x=> x.StudentId.Contains(StudentID))
 					.ToList();
 			
 			}
@@ -55,7 +55,15 @@ namespace SharpDevelopWebApi.Controllers
                 student.LastName = updatedstud.LastName;
                 student.Firstname = updatedstud.Firstname;
                 student.Gender = updatedstud.Gender;
+                student.StudentId = updatedstud.StudentId;
+                student.SubjectId = updatedstud.SubjectId;
+                student.CivilStatus = updatedstud.CivilStatus;
+                student.P1Grade = updatedstud.P1Grade;
+                student.P2Grade = updatedstud.P2Grade;
+                student.P3Grade = updatedstud.P3Grade;
                 student.SchoolLastAttended = updatedstud.SchoolLastAttended;
+                student.CourseId = updatedstud.CourseId;
+                
 
                 _db.Entry(student).State = System.Data.Entity.EntityState.Modified;
                 _db.SaveChanges();
