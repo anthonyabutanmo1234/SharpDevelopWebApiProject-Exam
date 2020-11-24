@@ -43,9 +43,9 @@ namespace SharpDevelopWebApi.Controllers
             {
             	song = song.Where(x => x.Peak <= peak).ToList();
             }
-             int totalCount= song.Count();
+            
 		 
-			 return Ok(new {totalCount, song});
+			 return Ok(song);
             
             
 		 
